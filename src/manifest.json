@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "short_name": "Tabstash",
+  "version": "1.0.0",
+  "description": "__MSG_extDesc__",
+  "default_locale": "en",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{eaf761f3-7f08-48d2-afff-7e3c61453b60}",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": { "required": ["none"] }
+    }
+  },
+  "permissions": ["tabs", "storage", "menus"],
+  "incognito": "not_allowed",
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: https:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+  },
+  "background": { "scripts": ["background.js"], "type": "module" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tabstash",
+    "default_icon": "icons/icon.svg"
+  },
+  "options_ui": { "page": "options.html", "open_in_tab": true },
+  "icons": { "48": "icons/icon.svg", "96": "icons/icon.svg" },
+  "commands": {
+    "save-selected": { "description": "__MSG_cmdSaveSelected__" },
+    "save-window": { "description": "__MSG_cmdSaveWindow__" },
+    "save-all": { "description": "__MSG_cmdSaveAll__" },
+    "restore-latest": { "description": "__MSG_cmdRestoreLatest__" },
+    "open-lists": { "description": "__MSG_cmdOpenLists__" }
+  }
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<title>Tabstash</title>
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="pop">
+  <div class="acts">
+    <button class="big primary" id="save-window"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10M8 10l4 4 4-4M4 15v4h16v-4"/></svg><span>Save all tabs</span><small id="n-window"></small></button>
+    <div class="two">
+      <button class="big" id="save-selected"><span>Save selected</span><small id="n-selected"></small></button>
+      <button class="big" id="save-all"><span>All windows</span><small id="n-all"></small></button>
+    </div>
+  </div>
+  <div class="head">
+    <span id="lists-h">Saved lists</span>
+    <button class="link-btn" id="open-lists">Open all lists →</button>
+  </div>
+  <input id="filter" type="search" placeholder="Filter lists" hidden aria-label="Filter lists">
+  <ul id="lists" class="plists" aria-labelledby="lists-h"></ul>
+  <p id="none" class="none" hidden>Nothing saved yet.</p>
+</div>
+<script type="module" src="popup.js"></script>
+</body>
+</html>

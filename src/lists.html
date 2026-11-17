@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Tabstash</title>
+<link rel="icon" href="icons/icon.svg">
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="lists.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div class="brand"><img src="icons/icon.svg" alt=""><span>Tabstash</span></div>
+    <label class="search">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14a7 7 0 1 0 0-14zM20 20l-4-4"/></svg>
+      <input id="q" type="search" placeholder="Search saved tabs" autocomplete="off" spellcheck="false" aria-label="Search saved tabs">
+      <kbd>/</kbd>
+    </label>
+    <div class="stats" id="stats" aria-live="polite"></div>
+    <div class="tools">
+      <button class="ib" id="btn-io" title="Import and export"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></button>
+      <button class="ib" id="btn-settings" title="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9M15 5v4M9 15v4"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div id="lists"></div>
+  <div id="no-results" class="empty" hidden><p>No saved tabs match your search.</p></div>
+  <section id="empty" class="empty" hidden>
+    <img src="icons/icon.svg" alt="" width="64" height="64">
+    <h1>No saved tabs yet</h1>
+    <p>Click the <b>Tabstash</b> button in the toolbar and choose <b>Save all tabs</b>,<br>or right-click a tab and use the Tabstash menu.</p>
+    <p class="muted">Coming from OneTab or Better OneTab? Export your lists there, then import them here.</p>
+    <button class="btn primary" id="btn-empty-import">Import lists</button>
+  </section>
+</main>
+
+<dialog id="dlg-settings" class="dlg wide" aria-labelledby="set-h">
+  <header class="dlg-h"><h2 id="set-h">Settings</h2><button class="ib" data-close title="Close"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
+  <div id="settings-body" class="dlg-b"></div>
+</dialog>
+
+<dialog id="dlg-io" class="dlg wide" aria-labelledby="io-h">
+  <header class="dlg-h"><h2 id="io-h">Import and export</h2><button class="ib" data-close title="Close"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>
+  <div class="dlg-b">
+    <h3>Export</h3>
+    <p class="muted">Save a backup file. Lists are kept only in this browser, so export now and then.</p>
+    <div class="row wrap">
+      <button class="btn" id="exp-json">Download backup (JSON)</button>
+      <button class="btn" id="exp-text">Download as OneTab text</button>
+      <button class="btn ghost" id="exp-copy">Copy as OneTab text</button>
+    </div>
+    <h3>Import</h3>
+    <p class="muted">Paste text exported from OneTab, or choose a backup from Better OneTab or Tabstash. Imported lists are added on top; nothing is replaced.</p>
+    <textarea id="imp-text" rows="7" spellcheck="false" placeholder="https://example.com | Example page&#10;https://example.org | Another page"></textarea>
+    <div class="row wrap">
+      <button class="btn primary" id="imp-go">Import</button>
+      <label class="btn ghost file">Choose file…<input type="file" id="imp-file" accept=".json,.txt,application/json,text/plain" hidden></label>
+      <span id="imp-msg" class="muted" role="status"></span>
+    </div>
+  </div>
+</dialog>
+
+<script type="module" src="lists.js"></script>
+</body>
+</html>

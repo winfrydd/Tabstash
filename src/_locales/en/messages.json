@@ -1,0 +1,9 @@
+{
+  "extName": { "message": "Tabstash" },
+  "extDesc": { "message": "Save your tabs into lists and restore them later. Private: no tracking, no accounts, no network requests." },
+  "cmdSaveSelected": { "message": "Save selected tabs" },
+  "cmdSaveWindow": { "message": "Save all tabs in this window" },
+  "cmdSaveAll": { "message": "Save tabs from all windows" },
+  "cmdRestoreLatest": { "message": "Restore the newest list" },
+  "cmdOpenLists": { "message": "Show saved lists" }
+}
